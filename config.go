@@ -25,7 +25,7 @@ package pulseaudio
 // #include <pulse/simple.h>
 import "C"
 
-// Config will allow you to set the parameters that pulseaudio will be initalized
+// Config will allow you to set the parameters that pulseaudio will be initialized
 // with at creation time.
 type Config struct {
 	// Format denoes the Audio format type. Currently only "NE" or
