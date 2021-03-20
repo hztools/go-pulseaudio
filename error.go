@@ -24,7 +24,7 @@ import (
 	"fmt"
 )
 
-// #cgo linux LDFLAGS: -lpulse -lpulse-simple
+// #cgo pkg-config: libpulse libpulse-simple
 //
 // #include <pulse/error.h>
 import "C"

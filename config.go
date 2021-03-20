@@ -20,7 +20,7 @@
 
 package pulseaudio
 
-// #cgo linux LDFLAGS: -lpulse -lpulse-simple
+// #cgo pkg-config: libpulse libpulse-simple
 //
 // #include <pulse/simple.h>
 import "C"
