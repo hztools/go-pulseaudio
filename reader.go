@@ -102,10 +102,8 @@ func NewReader(cfg Config) (*Reader, error) {
 	sampleSpec.channels = C.uint8_t(cfg.Channels)
 	sampleSpec.rate = C.uint32_t(cfg.Rate)
 
-	if cfg.MaxLength != 0 {
-		attr = &C.pa_buffer_attr{}
-		attr.maxlength = C.uint32_t(cfg.MaxLength)
-	}
+	// TODO(paultag): Add in support for frag, in particular.
+	// attr = &C.pa_buffer_attr{}
 
 	if C.pa_channels_valid(sampleSpec.channels) == 0 {
 		return nil, fmt.Errorf(

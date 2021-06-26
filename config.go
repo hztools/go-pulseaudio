@@ -46,10 +46,6 @@ type Config struct {
 
 	// StreamName is the name of the audio stream from the Application.
 	StreamName string
-
-	// MaxLength will set the pa_buffer_attr's maxlength to the set number
-	// of bytes.
-	MaxLength uint
 }
 
 // SampleFormat denotes the audio format to be used by the pulse streamer.
