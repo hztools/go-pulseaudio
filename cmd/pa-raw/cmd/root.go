@@ -17,7 +17,7 @@ const (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "pa-raw",
-	Short: "Preform raw read and write actions with pulseaudio",
+	Short: "Perform raw read and write actions with pulseaudio",
 }
 
 // Execute will run the rootCmd and exit.

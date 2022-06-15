@@ -48,7 +48,7 @@ func (r Reader) Flush() error {
 	return fmt.Errorf("pulseaudio: bad flush, err code %d", int(errCode))
 }
 
-// UnsafeRead will preform a very unsafe read into the target location in
+// UnsafeRead will perform a very unsafe read into the target location in
 // memory. Please avoid using this.
 func (r Reader) UnsafeRead(ptr unsafe.Pointer, size int) error {
 	var errCode C.int

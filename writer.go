@@ -130,7 +130,7 @@ type Writer struct {
 	writer writer
 }
 
-// Close will close the stream, and preform all cleanup required.
+// Close will close the stream, and perform all cleanup required.
 func (w Writer) Close() {
 	w.writer.Close()
 }
