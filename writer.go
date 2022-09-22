@@ -27,6 +27,7 @@ import (
 
 // #cgo pkg-config: libpulse libpulse-simple
 //
+// #include <stdlib.h>
 // #include <pulse/simple.h>
 import "C"
 
@@ -91,11 +92,20 @@ func newWriter(cfg Config) (*writer, error) {
 		)
 	}
 
+	var (
+		sinkName *C.char = nil
+	)
+
+	if cfg.SinkName != "" {
+		sinkName = C.CString(cfg.SinkName)
+		defer C.free(unsafe.Pointer(sinkName))
+	}
+
 	simple := C.pa_simple_new(
 		nil,
 		C.CString(cfg.AppName),
 		C.PA_STREAM_PLAYBACK,
-		nil,
+		sinkName,
 		C.CString(cfg.StreamName),
 		&sampleSpec,
 		nil,
@@ -173,7 +183,6 @@ func (w Writer) writeF32NE(samples []float32) error {
 //
 //   - []float32    (Format: SampleFormatFloat32NE, Channels: 1)
 //   - [][2]float32 (Format: SampleFormatFloat32NE, Channels: 2)
-//
 func (w Writer) Write(samples interface{}) error {
 	switch s := samples.(type) {
 	case [][2]float32:

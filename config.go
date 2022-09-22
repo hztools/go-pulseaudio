@@ -46,6 +46,9 @@ type Config struct {
 
 	// StreamName is the name of the audio stream from the Application.
 	StreamName string
+
+	// SinkName is the name of the PulseAudio sink to write to.
+	SinkName string
 }
 
 // SampleFormat denotes the audio format to be used by the pulse streamer.
